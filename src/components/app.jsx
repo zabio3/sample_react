@@ -11,21 +11,22 @@ class App extends Component {
     };
   }
 
-// setState　stateを更新する作業と、renderを更新の2つの役割
-  handleMouseOver() {
-    this.setState({ name: 'Bob' });
+  hendleNameChange(name) {
+    // 渡したものと、stateの名前が同じだと省略可能
+    // イベントの何を渡すのかに注目してあげる
+    this.setState({ name });
   }
 
-  handleMouseOut() {
-    this.setState({ name: 'Mike' });
-  }
 // トップレベルのElementは一つでなければならない
   render() {
     return (
-      <div
-        onMouseOver={() => this.handleMouseOver()}
-        onMouseOut={() => this.handleMouseOut()}
-      >
+      <div>
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={(e) => this.hendleNameChange(e.target.value)}
+        />
+        <button onClick={() => this.hendleNameChange('Bob')}>I am Bob</button>
         <Greeting name={this.state.name} />
       </div>
     );
