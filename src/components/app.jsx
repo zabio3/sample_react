@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Greeting from './greeting';
+import SearchForm from './SearchForm';
 
 class App extends Component {
    // 親コンポーネントの初期の状態定義
@@ -11,23 +11,17 @@ class App extends Component {
     };
   }
 
-  hendleNameChange(name) {
-    // 渡したものと、stateの名前が同じだと省略可能
-    // イベントの何を渡すのかに注目してあげる
-    this.setState({ name });
+  handlePlaceSubmit(place) {
+    console.log(place);
   }
+
 
 // トップレベルのElementは一つでなければならない
   render() {
     return (
       <div>
-        <input
-          type="text"
-          value={this.state.name}
-          onChange={(e) => this.hendleNameChange(e.target.value)}
-        />
-        <button onClick={() => this.hendleNameChange('Bob')}>I am Bob</button>
-        <Greeting name={this.state.name} />
+        <h1>緯度/軽度 検索</h1>
+        <SearchForm onSubmit={ place => this.handlePlaceSubmit(place)}/>
       </div>
     );
   }
