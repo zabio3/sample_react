@@ -1,6 +1,8 @@
 memo
 ===
 
+### 動機
+
 react + reduxのテストとして、google geolocationのapiを使った簡単なwebページ作成
 
 
