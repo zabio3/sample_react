@@ -21,3 +21,6 @@ yarn run start
 # atom plugin install (atom shell)
  apm install es6-javascript intentions busy-signal linter-ui-default linter linter-eslint
 ```
+
+- atomの再リロード
+  - control + option + command + l
