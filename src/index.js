@@ -1,1 +1,1 @@
-alert("hello react!!");
+alert('hello react!!');
