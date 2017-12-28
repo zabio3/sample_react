@@ -10,16 +10,24 @@ const InnerMap = withGoogleMap(props => (
     defaultCenter={props.position}
     center={props.position}
   >
+  {/*
+    ...props.position は、positionの中のキーを展開するのと同じ働きをもつ
+    */}
+    <Marker {...props.marker} />
   </GoogleMap>
 ));
 
-const Map = ({lat, lng}) => (
-  <InnerMap
-    containerElement={(<div />)}
-    mapElement={(<div className="map" />)}
-    position={{ lat, lng}}
-  />
-);
+const Map = ({lat, lng}) => {
+  const position = { lat, lng };
+  return (
+    <InnerMap
+      containerElement={(<div />)}
+      mapElement={(<div className="map" />)}
+      position={position}
+      marker={{ position }}
+    />
+  );
+};
 
 Map.PropTypes = {
   lat: PropTypes.number,
