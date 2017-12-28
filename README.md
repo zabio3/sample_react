@@ -1,26 +1,23 @@
-react_test
+geolocation_search
 ===
 
-react_test
+geolocationを使った簡単なwebページ
+
+## Requirement
+
+|  | Version |
+| -------- | -------- |
+| yarn     | 1.3.2    |
+| react    | 15.6.1    |
 
 ## Usage
 
-yarn 1.3.2
-react 15.6.1
-
-ローカルサーバ起動
+start
 ```
 yarn run start
 ```
 ### Memo
+ - [memo](notes/memo.md)
 
-```
-# publicにbundle.js吐き出す
-./node_modules/.bin/webpack
-
-# atom plugin install (atom shell)
- apm install es6-javascript intentions busy-signal linter-ui-default linter linter-eslint
-```
-
-- atomの再リロード
-  - control + option + command + l
+## Author
+  - [zabio3](https://github.com/zabio3)
