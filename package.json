@@ -16,6 +16,7 @@
     "css-loader": "^0.28.7",
     "eslint": "^4.14.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "google-react-maps": "^1.2.24",
     "import-glob-loader": "^1.1.0",
     "node-sass": "^4.7.2",
     "react": "15.6.1",
