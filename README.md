@@ -11,7 +11,7 @@ geolocationを使った簡単なwebページ
 | -------- | -------- |
 | yarn     | 1.3.2    |
 | react    | 15.6.1    |
-|[google-react-maps](https://www.google.co.jp/search?q=react+google+maps&oq=react+google+maps&aqs=chrome..69i57j69i60l2j0l3.3028j0j7&sourceid=chrome&ie=UTF-8) | 9.4.3  |
+|[react-google-maps](https://www.google.co.jp/search?q=react+google+maps&oq=react+google+maps&aqs=chrome..69i57j69i60l2j0l3.3028j0j7&sourceid=chrome&ie=UTF-8) | 9.4.3  |
 
 ## Usage
 
