@@ -6,7 +6,10 @@ import HotelRaw from './HotelRaw';
 const HotelsTable = ({ hotels }) => (
   <table>
     <tbody>
-      <tr><th>ホテル名</th></tr>
+      <tr>
+        <th>画像</th>
+        <th>ホテル名</th>
+      </tr>
       {hotels.map(hotel => (<HotelRaw key={hotel.id} hotel={hotel} />))}
     </tbody>
   </table>
