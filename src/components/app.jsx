@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import GeoCodeResult from './GeoCodeResult';
 import Map from './Map';
-import { geocode } from '../domain/Geocoder';
 import HotelsTable from './HotelsTable';
+
+import { geocode } from '../domain/Geocoder';
+import { searchHotelByLocation } from '../domain/HotelRepository';
 
 class App extends Component {
 // 親コンポーネントの初期の状態定義
@@ -40,7 +42,8 @@ class App extends Component {
         switch (status) {
           case 'OK': {
             this.setState({ address, location });
-            break;
+            return searchHotelByLocation(location);
+            // break;
           }
           case 'ZERO_RESULTS': {
             this.setErrorMessage('結果が見つかりませんでした');
@@ -66,7 +69,12 @@ class App extends Component {
             this.setErrorMessage('エラーが発生しました');
           }
         }
-      }).catch(() => {
+        return [];
+      })
+      .then((hotels) => {
+        this.setState({ hotels });
+      })
+      .catch(() => {
         this.setErrorMessage('通信に失敗しました');
       });
   }

@@ -4,7 +4,7 @@ class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'place': 'Tokyo tower',
+      place: 'Tokyo tower',
     };
   }
 

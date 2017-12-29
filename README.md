@@ -3,7 +3,7 @@ geolocation_search
 
 [![CircleCI](https://circleci.com/gh/zabio3/geolocation_search.svg?style=svg)](https://circleci.com/gh/zabio3/geolocation_search)
 
-geolocationを使った簡単なwebページ
+react + reduxでのテストのために作成したgeolocationとホテル検索APIを組み合わせた簡単なwebページ
 
 ## Requirement
 
@@ -15,12 +15,17 @@ geolocationを使った簡単なwebページ
 
 ## Usage
 
+#### 事前設定
+  - config.template.envをCopyして、config.envを作成。
+  - RAKUTEN_APP_IDを設定(config.env)。
+
 start
 ```
 yarn run start
 ```
 #### Memo
  - [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro?hl=ja)
+ - [ホテル検索](https://webservice.rakuten.co.jp/api/hoteldetailsearch/)
  - [memo](notes/memo.md)
 
 ## Author

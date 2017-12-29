@@ -17,6 +17,9 @@ react + reduxのテストとして、google geolocationのapiを使った簡単�
 - atomの再リロード
   - control + option + command + l
 
+- eslint-disable-next-line
+  - これを入れると次のerrorを無視してくれる
+
 #### Errorメモ
 
 ```
