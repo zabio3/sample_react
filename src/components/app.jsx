@@ -17,6 +17,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      address: '日本、〒105-0011 東京都港区芝公園４丁目２−８',
       location: {
         lat: 35.6585805,
         lng: 139.7454329,
@@ -81,7 +82,10 @@ class App extends Component {
   }
 
   handleSortKeyChange(sortKey) {
-    this.setState({ sortKey, hotels: sortedHotels(this.state.hotels, sortKey) });
+    this.setState({
+      sortKey,
+      hotels: sortedHotels(this.state.hotels, sortKey),
+    });
   }
 
   // トップレベルのElementは一つでなければならない
@@ -100,6 +104,7 @@ class App extends Component {
             <h2>ホテル検索結果</h2>
             <HotelsTable
               hotels={this.state.hotels}
+              sortKey={this.state.sortKey}
               onSort={(sortKey) => this.handleSortKeyChange(sortKey)}
             />
           </div>
