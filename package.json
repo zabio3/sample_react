@@ -15,7 +15,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
-    "dotenv": "^4.0.0",
     "eslint": "^4.14.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "import-glob-loader": "^1.1.0",

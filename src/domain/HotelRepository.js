@@ -11,8 +11,15 @@ export const searchHotelByLocation = (location) => {
     longitude: location.lng,
   };
   return Rakuten.Travel.simpleHotelSearch(params)
-    .then((result) => {
-      console.log('楽天トラベル ホテル検索');
-      console.log(result);
-    });
+    .then(result =>
+      // console.log(result);
+      result.data.hotels.map((hotel) => {
+        const basicInfo = hotel.hotel[0].hotelBasicInfo;
+        return {
+          id: basicInfo.hotelNo,
+          name: basicInfo.hotelName,
+          url: basicInfo.hotelInformationUrl,
+        };
+      }),
+    );
 };
