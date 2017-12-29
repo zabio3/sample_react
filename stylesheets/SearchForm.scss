@@ -1,0 +1,19 @@
+.search-form {
+  text-align: center;
+}
+
+/* scssがコンパイルされるとscssが一つになるため、グローバル変数となるため、コンポーネントの名前をつけるとバッティングしづらくなる*/
+$search-form-font-size: 24px;
+
+.place-input {
+  font-size: $search-form-font-size;
+}
+
+/* chrome, safariだとボタンのところのcssがデフォルトできかないのでoffにさせる */
+.submit-button {
+  -webkit-appearance: none;
+  font-size: $search-form-font-size;
+  background-color: #fff;
+  background: 1px solid #ccc;
+  border-radius: 3px;
+}

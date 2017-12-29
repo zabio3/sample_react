@@ -27,12 +27,14 @@ class App extends Component {
     });
   }
 
+/* インデントミスると結構動かなくなる */
+
   handlePlaceSubmit(place) {
     geocode(place)
-    .then((status, address, location ) => {
+      .then(({ status, address, location }) => {
         switch (status) {
           case 'OK': {
-            this.setState({address, location });
+            this.setState({ address, location });
             break;
           }
           case 'ZERO_RESULTS': {
@@ -67,14 +69,16 @@ class App extends Component {
 // トップレベルのElementは一つでなければならない
   render() {
     return (
-      <div>
-        <h1>Geolocation Search</h1>
-        <SearchForm onSubmit={ place => this.handlePlaceSubmit(place)}/>
-        <GeoCodeResult
-          address={this.state.address}
-          location ={this.state.location}
-        />
-        <Map location ={this.state.location} />
+      <div className="app">
+        <h1 className="app-title">Hotel Search</h1>
+        <SearchForm onSubmit={place => this.handlePlaceSubmit(place)}/>
+        <div className="result-area">
+          <Map location={this.state.location} />
+          <GeoCodeResult
+            address={this.state.address}
+            location={this.state.location}
+          />
+        </div>
       </div>
     );
   }
