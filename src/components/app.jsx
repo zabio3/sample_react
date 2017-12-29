@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 import SearchForm from './SearchForm';
 import GeoCodeResult from './GeoCodeResult';
@@ -7,6 +8,9 @@ import HotelsTable from './HotelsTable';
 
 import { geocode } from '../domain/Geocoder';
 import { searchHotelByLocation } from '../domain/HotelRepository';
+
+// sortBy 第一引数: ソート対象 , 第二引数: 実行関数 hは一つ一つのホテルで、sortして返却
+const sortedHotels = (hotels, sortKey) => _.sortBy(hotels, h => h[sortKey]);
 
 class App extends Component {
 // 親コンポーネントの初期の状態定義
@@ -17,10 +21,7 @@ class App extends Component {
         lat: 35.6585805,
         lng: 139.7454329,
       },
-      hotels: [
-        { id: 111, name: 'トンボハウス', url: '' },
-        { id: 112, name: 'アパホテル', url: '' },
-      ],
+      sortKey: 'price',
     };
   }
 
@@ -72,11 +73,15 @@ class App extends Component {
         return [];
       })
       .then((hotels) => {
-        this.setState({ hotels });
+        this.setState({ hotels: sortedHotels(hotels, this.state.sortKey) });
       })
       .catch(() => {
         this.setErrorMessage('通信に失敗しました');
       });
+  }
+
+  handleSortKeyChange(sortKey) {
+    this.setState({ sortKey, hotels: sortedHotels(this.state.hotels, sortKey) });
   }
 
   // トップレベルのElementは一つでなければならない
@@ -93,7 +98,10 @@ class App extends Component {
               location={this.state.location}
             />
             <h2>ホテル検索結果</h2>
-            <HotelsTable hotels={this.state.hotels} />
+            <HotelsTable
+              hotels={this.state.hotels}
+              onSort={(sortKey) => this.handleSortKeyChange(sortKey)}
+            />
           </div>
         </div>
       </div>
