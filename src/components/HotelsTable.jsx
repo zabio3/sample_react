@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import HotelRaw from './HotelRaw';
 
 const HotelsTable = ({ hotels }) => (
@@ -9,6 +8,10 @@ const HotelsTable = ({ hotels }) => (
       <tr>
         <th>画像</th>
         <th>ホテル名</th>
+        <th className="hotel-price-column">値段</th>
+        <th>レビュー平均点</th>
+        <th>レビュー数</th>
+        <th>距離</th>
       </tr>
       {hotels.map(hotel => (<HotelRaw key={hotel.id} hotel={hotel} />))}
     </tbody>
