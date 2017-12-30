@@ -11,7 +11,6 @@ import SearchForm from './SearchForm';
 import { geocode } from '../domain/Geocoder';
 import { searchHotelByLocation } from '../domain/HotelRepository';
 
-
 // sortBy 第一引数: ソート対象 , 第二引数: 実行関数 hは一つ一つのホテルで、sortして返却
 const sortedHotels = (hotels, sortKey) => _.sortBy(hotels, h => h[sortKey]);
 
@@ -30,10 +29,14 @@ class SearchPage extends Component {
   }
 
   componentDidMount() {
-    const place = this.getPlaceParam();
-    if (place) {
-      this.startSearch();
-    }
+    // storeのsearchpageだけ更新する処理が登録される
+    this.unsubscribe = this.props.store.subscribe(() => {
+      this.forceUpdate();
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   getPlaceParam() {
@@ -106,7 +109,7 @@ class SearchPage extends Component {
 
   handlePlaceChange(e) {
     e.preventDefault();
-    this.props.onPlaceChange(e.target.value);
+    this.props.store.dispatch({ type: 'CHANGE_PLACE', place: e.target.value })};
   }
 
   /* インデントミスると結構動かなくなる */
@@ -118,11 +121,12 @@ class SearchPage extends Component {
 
   // トップレベルのElementは一つでなければならない
   render() {
+    const state = this.props.store.getState();
     return (
       <div className="search-page">
         <h1 className="app-title">Hotel Search</h1>
         <SearchForm
-          place={this.props.place}
+          place={state.place}
           onPlaceChange={e => this.handlePlaceChange(e)}
           onSubmit={e => this.handlePlaceSubmit(e)}
         />
@@ -151,8 +155,13 @@ class SearchPage extends Component {
 SearchPage.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
   location: PropTypes.shape({ search: PropTypes.string }).isRequired,
-  onPlaceChange: PropTypes.func.isRequired,
-  place: PropTypes.string.isRequired,
+  store: PropTypes.shape({
+    subscribe: PropTypes.func,
+    getState: PropTypes.func,
+    dispatch: PropTypes.func,
+  }).isRequired,
+//  onPlaceChange: PropTypes.func.isRequired,
+//  place: PropTypes.string.isRequired,
 };
 
 export default SearchPage;
