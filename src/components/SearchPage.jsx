@@ -2,53 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import queryString from 'query-string';
 
 import SearchForm from '../containers/SearchForm';
 import GeocodeResult from './GeocodeResult';
 import Map from './Map';
 import HotelsTable from './HotelsTable';
+import { startSearch } from '../actions/';
 
 class SearchPage extends Component {
-  getPlaceParam() {
-    const params = queryString.parse(this.props.location.search);
-    const place = params.place;
-    if (place && place.length > 0) {
-      return place;
-    }
-    return null;
+  componentDidMount() {
+    this.props.dispatch(startSearch());
   }
-
-  setErrorMessage(message) {
-    this.setState({
-      address: message,
-      location: {
-        lat: 0,
-        lng: 0,
-      },
-    });
-  }
-
-  handleSortKeyChange(sortKey) {
-    this.setState({
-      sortKey,
-      hotels: sortedHotels(this.state.hotels, sortKey),
-    });
-  }
-
-  /* インデントミスると結構動かなくなる */
-  //handlePlaceSubmit(e) {
-  //  e.preventDefault();
-  //  this.props.history.push(`/?place=${this.state.place}`);
-  //  this.startSearch();
-  //}
 
   // トップレベルのElementは一つでなければならない
   render() {
     return (
       <div className="search-page">
         <h1 className="app-title">Hotel Search</h1>
-        <SearchForm />
+        <SearchForm history={this.props.history} />
         <div className="result-area">
           <Map location={this.props.geocodeResult.location} />
           <div className="result-right">
@@ -66,7 +37,7 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-//  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
   location: PropTypes.shape({ search: PropTypes.string }).isRequired,
   geocodeResult: PropTypes.shape({
     address: PropTypes.string.isRequired,
@@ -75,6 +46,7 @@ SearchPage.propTypes = {
       lng: PropTypes.number.isRequired,
     }),
   }).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 
