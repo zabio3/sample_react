@@ -15,6 +15,7 @@ const sortedHotels = (hotels, sortKey) => _.sortBy(hotels, h => h[sortKey]);
 class SearchPage extends Component {
 // 親コンポーネントの初期の状態定義
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       address: '日本、〒105-0011 東京都港区芝公園４丁目２−８',
