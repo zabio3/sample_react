@@ -114,6 +114,9 @@ reduxは、ライブラリ。
     変更は純粋関数を利用すること。
     reducerと呼ばれるものが、純粋関数にあたる。
 
+### 便利ツール
+ - [Redux DevTools Extension](http://extension.remotedev.io/)
+
 #### Errorメモ
 
 ```

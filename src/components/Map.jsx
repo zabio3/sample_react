@@ -7,7 +7,7 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 // ...props.position は、positionの中のキーを展開するのと同じ働きをもつ
 const InnerMap = withGoogleMap(({ location, marker }) => (
   <GoogleMap
-    defaultZoom={12}
+    defaultZoom={14}
     defaultCenter={location}
     center={location}
   >

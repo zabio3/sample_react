@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // propsを省略可能
-const GeoCodeResult = ({ address, location }) => (
+const GeocodeResult = ({ address, location }) => (
   <ul className="geocode-result">
     <li>住所: {address}</li>
     <li>緯度: {location.lat}</li>
@@ -10,13 +10,13 @@ const GeoCodeResult = ({ address, location }) => (
   </ul>
 );
 
-GeoCodeResult.propTypes = {
+GeocodeResult.propTypes = {
   address: PropTypes.string,
   location: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
-GeoCodeResult.defaultProps = {
+GeocodeResult.defaultProps = {
   address: '',
 };
 
-export default GeoCodeResult;
+export default GeocodeResult;
