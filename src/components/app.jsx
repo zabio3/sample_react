@@ -10,6 +10,7 @@ import {
 import SearchPage from './SearchPage';
 import About from './AboutPage';
 
+
 const App = () => (
   // トップレベルのElementは一つでなければならない
   <Router>

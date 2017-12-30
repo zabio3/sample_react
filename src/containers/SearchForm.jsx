@@ -3,27 +3,72 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { setPlace, startSearch } from '../actions/';
+// import Button from 'antd/lib/button';
+
+import { Form, Icon, Input, Button } from 'antd';
+import { Row, Col } from 'antd';
+
+const FormItem = Form.Item;
+const Search = Input.Search;
 
 const SearchForm = props => (
-  <form
-    className="search-form"
-    onSubmit={(e) => {
+  /*
+  handleSubmit = (e) => {
+    e.preventDefault();
+    props.history.push(`/?place=${props.place}`);
+    props.startSearch(props.place);
+  }
+  <input
+    type="text"
+    value={props.place}
+    onChange={(e) => {
+      e.preventDefault();
+      props.setPlace(e.target.value);
+    }}
+  />
+  <Button type="primary" icon="search" size="large" onClick={
+    (e) => {
       e.preventDefault();
       props.history.push(`/?place=${props.place}`);
       props.startSearch(props.place);
-    }}
-  >
-    <input
-      className="place-input"
-      type="text"
-      value={props.place}
-      onChange={(e) => {
-        e.preventDefault();
-        props.setPlace(e.target.value);
-      }}
-    />
-    <input className="submit-button" type="submit" value="検索" />
-  </form>
+    }
+  }>検索</Button>
+
+  */
+  <div className="search-form">
+    <Row align="middle">
+      <Col offset={8} span={8}>
+        <Form layout="inline" onSubmit={
+          (e) => {
+            e.preventDefault();
+            props.history.push(`/?place=${props.place}`);
+            props.startSearch(props.place);
+          }
+        }>
+          <Form.Item>
+            <Search
+              style={{ width: 350 }}
+              placeholder="検索したい場所を入力してください"
+              enterButton="検索"
+              value={props.place}
+              onChange={(e) => {
+                e.preventDefault();
+                props.setPlace(e.target.value);
+              }}
+              size="large"
+              onClick={
+              (e) => {
+                  e.preventDefault();
+                  props.history.push(`/?place=${props.place}`);
+                  props.startSearch(props.place);
+                }
+              }
+            />
+          </Form.Item>
+        </Form>
+      </Col>
+    </Row>
+  </div>
 );
 
 SearchForm.propTypes = {
