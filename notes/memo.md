@@ -117,6 +117,12 @@ reduxは、ライブラリ。
 ### 便利ツール
  - [Redux DevTools Extension](http://extension.remotedev.io/)
 
+ - [Redux](http://redux.js.org)
+  - recipes, introductionのecosystem(library, middlewareの紹介など)
+  - [awesome-redux](https://github.com/xgrommx/awesome-redux)
+  - [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+    - [Reduxが本当に必要なのか？（オブジェクト指向の排除し、純粋関数型で作っていくなど）](https://mae.chab.in/archives/2937)
+
 #### Errorメモ
 
 ```
