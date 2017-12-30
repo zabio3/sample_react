@@ -1,4 +1,4 @@
-geolocation_search
+hotel_search
 ===
 
 [![CircleCI](https://circleci.com/gh/zabio3/geolocation_search.svg?style=svg)](https://circleci.com/gh/zabio3/geolocation_search)

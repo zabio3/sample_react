@@ -16,6 +16,7 @@ class App extends Component {
 // 親コンポーネントの初期の状態定義
   constructor(props) {
     super(props);
+    console.log('constructor');
     this.state = {
       address: '日本、〒105-0011 東京都港区芝公園４丁目２−８',
       location: {
@@ -24,6 +25,69 @@ class App extends Component {
       },
       sortKey: 'price',
     };
+  }
+
+  /*
+  「マウントされる直前に1回だけ呼ばれる」
+  - 初期化処理を行うのに適している
+  - コンポーネントがDOMツリーに追加される前に1度だけ呼ばれる
+  - このメソッド内でsetstate()するとrender時にまとめて行われる
+  */
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+
+  /*
+  「マウントされた直後に1回だけ呼ばれる」
+  - DOMに関わる初期処理を行いたい時に便利
+  - コンポーネントがDOMツリーに追加された状態で呼ばれる
+  */
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  /*
+  「コンポーネントがプロパティの値を受けるときに呼ばれる」
+  - プロパティが更新されるときに呼ばれる
+  - 親コンポーネントのStateがPropsとして渡されていて、その変化で(表示以外で)何かしたいときに便利
+  */
+  componentWillReceiveProps() {
+    console.log('componentWillReceiveProps');
+  }
+
+  /*
+  「コンポーネントを更新してもいいかどうかの判断を行う」
+  - 戻り値は「True」または「False」
+  - 無駄な処理を無くし、パフォーマンスの向上を行うときに便利
+  */
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');
+    return true;
+  }
+
+  /*
+  「コンポーネントが更新される前に呼ばれる」
+  - shouldComponentの戻り値がtrueの場合呼ばれる
+  */
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+
+  /*
+  「コンポーネントが更新された後に呼ばれる」
+  - DOMの変化にフックして何かしたい場合に使うと便利
+  */
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
+  /*
+  「コンポーネントがアンマウントする前に呼ばれる」
+  - コンポーネントがDOMから削除される時に呼ばれる
+  - Timerの処理やDOMのイベントを解除するときはここで処理をかいておく
+  */
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
   }
 
   setErrorMessage(message) {
@@ -113,5 +177,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

@@ -20,6 +20,11 @@ react + reduxのテストとして、google geolocationのapiを使った簡単�
 - eslint-disable-next-line
   - これを入れると次のerrorを無視してくれる
 
+- ライフサイクルメソッド
+  - React側で様々な要素を用意していて、自分で作成しているコンポーネント上に実装しておくと、React側がいいタイミングで勝手に呼んでくれる
+    App.jsxに7このライフサイクルがどのように呼ばれているのか確認可能なようにconsole.log
+
+
 #### Errorメモ
 
 ```
