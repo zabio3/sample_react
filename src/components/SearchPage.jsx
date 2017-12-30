@@ -16,7 +16,6 @@ class SearchPage extends Component {
 // 親コンポーネントの初期の状態定義
   constructor(props) {
     super(props);
-    console.log('constructor');
     this.state = {
       address: '日本、〒105-0011 東京都港区芝公園４丁目２−８',
       location: {
