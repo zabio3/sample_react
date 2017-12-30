@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
@@ -8,20 +7,9 @@ import queryString from 'query-string';
 import SearchForm from '../containers/SearchForm';
 import GeocodeResult from './GeocodeResult';
 import Map from './Map';
-// import HotelsTable from './HotelsTable';
-
-// sortBy 第一引数: ソート対象 , 第二引数: 実行関数 hは一つ一つのホテルで、sortして返却
-const sortedHotels = (hotels, sortKey) => _.sortBy(hotels, h => h[sortKey]);
+import HotelsTable from './HotelsTable';
 
 class SearchPage extends Component {
-// 親コンポーネントの初期の状態定義
-  constructor(props) {
-    super(props);
-    this.state = {
-      sortKey: 'price',
-    };
-  }
-
   getPlaceParam() {
     const params = queryString.parse(this.props.location.search);
     const place = params.place;
@@ -68,14 +56,8 @@ class SearchPage extends Component {
               address={this.props.geocodeResult.address}
               location={this.props.geocodeResult.location}
             />
-            {/*
             <h2>ホテル検索結果</h2>
-            <HotelsTable
-              hotels={this.state.hotels}
-              sortKey={this.state.sortKey}
-              onSort={sortKey => this.handleSortKeyChange(sortKey)}
-            />
-          */}
+            <HotelsTable />
           </div>
         </div>
       </div>

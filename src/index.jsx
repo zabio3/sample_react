@@ -9,6 +9,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import SearchPage from './components/SearchPage';
 import reducer from './reducers/';
 
+/*
+const thunk = ({ dispatch, getState }) => next => action => {
+  if (typeof action === 'function') {
+    return action(dispatch, getState, extraArgument);
+  }
+  return next(action);
+}
+*/
+
 const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(thunk)),

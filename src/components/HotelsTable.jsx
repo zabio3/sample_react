@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HotelRaw from './HotelRaw';
 import HotelsClickableTh from './HotelsClickableTh';
+import _ from 'lodash';
+import { connect } from 'react-redux';
 
-const HotelsTable = ({ hotels, sortKey, onSort }) => (
+const HotelsTable = ({ hotels }) => (
   <table>
     <tbody>
       <tr>
@@ -12,26 +14,18 @@ const HotelsTable = ({ hotels, sortKey, onSort }) => (
         <HotelsClickableTh
           label="値段"
           sortKey="price"
-          isSelected={sortKey === 'price'}
-          onSort={key => onSort(key)}
         />
         <HotelsClickableTh
           label="レビュー"
           sortKey="reviewAverage"
-          isSelected={sortKey === 'reviewAverage'}
-          onSort={key => onSort(key)}
         />
         <HotelsClickableTh
           label="レビュー数"
           sortKey="reviewCount"
-          isSelected={sortKey === 'reviewCount'}
-          onSort={key => onSort(key)}
         />
         <HotelsClickableTh
           label="距離"
           sortKey="distance"
-          isSelected={sortKey === 'distance'}
-          onSort={key => onSort(key)}
         />
       </tr>
       {hotels.map(hotel => (<HotelRaw key={hotel.id} hotel={hotel} />))}
@@ -41,12 +35,17 @@ const HotelsTable = ({ hotels, sortKey, onSort }) => (
 
 HotelsTable.propTypes = {
   hotels: PropTypes.arrayOf(PropTypes.any),
-  sortKey: PropTypes.string.isRequired,
-  onSort: PropTypes.func.isRequired,
 };
 
 HotelsTable.defaultProps = {
   hotels: [],
 };
 
-export default HotelsTable;
+// sortBy 第一引数: ソート対象 , 第二引数: 実行関数 hは一つ一つのホテルで、sortして返却
+const sortedHotels = (hotels, sortKey) => _.sortBy(hotels, h => h[sortKey]);
+
+export default connect(
+  state => ({
+    hotels: sortedHotels(state.hotels, state.sortKey),
+  }),
+)(HotelsTable);

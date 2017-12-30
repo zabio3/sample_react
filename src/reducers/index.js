@@ -9,6 +9,24 @@ const place = (state = 'スカイツリー', action) => {
   }
 };
 
+const hotels = (state = [], action) => {
+  switch (action.type) {
+    case 'CHANGE_HOTELS':
+      return action.hotels;
+    default:
+      return state;
+  }
+};
+
+const sortKey = (state = 'price', action) => {
+  switch (action.type) {
+    case 'CHANGE_SORT_KEY':
+      return action.sortKey;
+    default:
+      return state;
+  }
+};
+
 const geocodeResult = (
   state = {
     address: '',
@@ -25,9 +43,14 @@ const geocodeResult = (
         address: action.address,
         location: action.location,
       };
+    case 'CHANGE_ERROR_MESSAGE':
+      return {
+        address: action.message,
+        location: { lat: 0, lng: 0 },
+      };
     default:
       return state;
   }
 };
 
-export default combineReducers({ place, geocodeResult });
+export default combineReducers({ place, geocodeResult, hotels, sortKey });
