@@ -3,7 +3,8 @@ memo
 
 ### 動機
 
-react + reduxのテストとして、google geolocationのapiを使った簡単なwebページ作成
+reactとreduxは触ったことがなかったため。
+react + reduxのテストとして、いくつかapiを使った簡単なwebページ作成
 
 
 ```
@@ -96,6 +97,22 @@ componentWillUnmount() {
 
  - [react-router](https://reacttraining.com/react-router/web/guides/philosophy)
 
+#### flex / redux
+
+flexは、考え方の名前。
+viewから、stateのオブジェクトを切り離し、イベントに当たる部分は、actionというもので切り離し、
+切り離した上で、アクションを発行していき、store(state)を更新していく。
+storeをサブスクライブしているviewが自身を更新していく。
+要素を分割するため、大規模開発に向いた考え方だと。
+
+reduxは、ライブラリ。
+  - single source of truth
+    storeを複数作るのではなく、一つのstoreに全てを管理させようと。
+  - state is read-only
+    stateの上書きは、必ずactionを発行してから更新すること。
+  - change are mode with pure functions
+    変更は純粋関数を利用すること。
+    reducerと呼ばれるものが、純粋関数にあたる。
 
 #### Errorメモ
 
