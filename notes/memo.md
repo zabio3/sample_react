@@ -94,6 +94,9 @@ componentWillUnmount() {
 
 ```
 
+ - [react-router](https://reacttraining.com/react-router/web/guides/philosophy)
+
+
 #### Errorメモ
 
 ```
@@ -106,3 +109,13 @@ render()が走る度に、仮想DOMを構築するが、前の仮想DOMの状態
 テーブル上で、IDが振られていないと要素を消去した際に、要素を詰める動きが発生し余計な処理がかかる。
 
  - 例. 3つしかない要素で、2こ目の要素を消去した際に、2こ目は消去して、3こ目を2つ目に入れて、3つ目の要素も消去すると。
+
+
+```
+do not use setstate in componentdidmount
+```
+componentdidmount の後に、setStateを行うとrenderが2回呼ばれてしまう。
+また、propertyやlayoutを壊す可能性があると。
+rendorが非同期で走っていて、ぶつかる可能性もある。
+
+ -[Prevent usage of setState in componentDidMount (react/no-did-mount-set-state)](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md)

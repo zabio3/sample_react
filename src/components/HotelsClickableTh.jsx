@@ -5,7 +5,7 @@ const HotelsClickableTh = ({ label, sortKey, isSelected, onSort }) => (
   <th
     className="hotels-clickable-th"
     onClick={() => onSort(sortKey)}
-  >{label}{isSelected ? '▲' : ''}
+  >{label} {isSelected ? '▲' : ''}
   </th>
 );
 

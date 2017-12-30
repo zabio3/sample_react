@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Switch
+  Switch,
 } from 'react-router-dom';
 
 import SearchPage from './SearchPage';
