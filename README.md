@@ -16,17 +16,18 @@ react + reduxでのテストのために作成したgeolocationとホテル検�
 ## Usage
 
 #### 事前設定
-  - config.template.envをCopyして、config.envを作成。
-  - RAKUTEN_APP_IDを設定(config.env)。
+  - config.template.envをCopyして、config.envを作成
+  - RAKUTEN_APP_IDを設定(config.env)
 
-start
+#### 起動
+
 ```
 yarn run start
 ```
 #### Memo
  - [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro?hl=ja)
- - [ホテル検索](https://webservice.rakuten.co.jp/api/hoteldetailsearch/)
- - [memo](notes/memo.md)
+ - [楽天トラベルAPI](https://webservice.rakuten.co.jp/api/hoteldetailsearch/)
+ - [個人メモ](notes/memo.md)
 
 ## Author
   - [zabio3](https://github.com/zabio3)
