@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
 import SearchForm from './SearchForm';
-import GeoCodeResult from './GeoCodeResult';
-import Map from './Map';
-import HotelsTable from './HotelsTable';
+// import GeoCodeResult from './GeoCodeResult';
+// import Map from './Map';
+// import HotelsTable from './HotelsTable';
 
 import { geocode } from '../domain/Geocoder';
 import { searchHotelByLocation } from '../domain/HotelRepository';
@@ -104,8 +104,9 @@ class SearchPage extends Component {
     });
   }
 
-  handlePlaceChange(place) {
-    this.setState({ place });
+  handlePlaceChange(e) {
+    e.preventDefault();
+    this.props.onPlaceChange(e.target.value);
   }
 
   /* インデントミスると結構動かなくなる */
@@ -121,10 +122,11 @@ class SearchPage extends Component {
       <div className="search-page">
         <h1 className="app-title">Hotel Search</h1>
         <SearchForm
-          place={this.state.place}
-          onPlaceChange={place => this.handlePlaceChange(place)}
-          onSubmit={(e) => this.handlePlaceSubmit(e)}
+          place={this.props.place}
+          onPlaceChange={e => this.handlePlaceChange(e)}
+          onSubmit={e => this.handlePlaceSubmit(e)}
         />
+        {/*
         <div className="result-area">
           <Map location={this.state.location} />
           <div className="result-right">
@@ -140,6 +142,7 @@ class SearchPage extends Component {
             />
           </div>
         </div>
+        */}
       </div>
     );
   }
@@ -148,6 +151,8 @@ class SearchPage extends Component {
 SearchPage.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
   location: PropTypes.shape({ search: PropTypes.string }).isRequired,
+  onPlaceChange: PropTypes.func.isRequired,
+  place: PropTypes.string.isRequired,
 };
 
 export default SearchPage;

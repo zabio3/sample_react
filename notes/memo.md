@@ -97,7 +97,7 @@ componentWillUnmount() {
 
  - [react-router](https://reacttraining.com/react-router/web/guides/philosophy)
 
-#### flex / redux
+### flex / redux
 
 flexは、考え方の名前。
 viewから、stateのオブジェクトを切り離し、イベントに当たる部分は、actionというもので切り離し、
@@ -135,4 +135,4 @@ componentdidmount の後に、setStateを行うとrenderが2回呼ばれてし�
 また、propertyやlayoutを壊す可能性があると。
 rendorが非同期で走っていて、ぶつかる可能性もある。
 
- -[Prevent usage of setState in componentDidMount (react/no-did-mount-set-state)](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md)
+ - [Prevent usage of setState in componentDidMount (react/no-did-mount-set-state)](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md)
