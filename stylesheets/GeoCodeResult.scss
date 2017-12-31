@@ -1,4 +1,11 @@
 .geocode-result {
   text-align: left;
   list-style: none;
+  padding:0;
+}
+
+.geocode-result ul {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

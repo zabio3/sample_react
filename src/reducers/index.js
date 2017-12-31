@@ -10,7 +10,7 @@ const getPlaceParam = () => {
   return null;
 }
 
-const place = (state = getPlaceParam() || 'スカイツリー', action) => {
+const place = (state = getPlaceParam() || '東京ドーム', action) => {
   switch (action.type) {
     case 'CHANGE_PLACE':
       return action.place;
@@ -41,8 +41,8 @@ const geocodeResult = (
   state = {
     address: '',
     location: {
-      lat: 35.7100627,
-      lng: 139.8107004,
+      lat: 35.7056396,
+      lng: 139.7518913,
     },
   },
   action,

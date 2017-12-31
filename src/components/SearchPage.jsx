@@ -20,9 +20,6 @@ class SearchPage extends Component {
     return (
       <div className="search-page">
         <Row align="middle">
-          <Col offset={8} span={8}>
-            <h1 className="app-title">ホテル検索</h1>
-          </Col>
           <Col>
             <SearchForm history={this.props.history} />
           </Col>
