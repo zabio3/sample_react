@@ -21,7 +21,7 @@ export const searchHotelByLocation = (location) => {
           { latitude: basicInfo.latitude, longitude: basicInfo.longitude },
         );
         return {
-          id: basicInfo.hotelNo,
+          key: basicInfo.hotelNo,
           name: basicInfo.hotelName,
           url: basicInfo.hotelInformationUrl,
           thumbUrl: basicInfo.hotelThumbnailUrl,

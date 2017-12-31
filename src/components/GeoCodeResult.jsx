@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// propsを省略可能
 const GeocodeResult = ({ address, location }) => (
+
   <ul className="geocode-result">
-    <li>住所: {address}</li>
-    <li>緯度: {location.lat}</li>
-    <li>軽度: {location.lng}</li>
+    <ul className="geocode-result">
+      <label>住所</label>
+      <li>　{address}</li>
+    </ul>
+    <ul className="geocode-result">
+      <label>緯度</label>
+      <li>　{location.lat}</li>
+    </ul>
+    <ul className="geocode-result">
+      <label>経度</label>
+      <li>　{location.lng}</li>
+    </ul>
   </ul>
 );
 
