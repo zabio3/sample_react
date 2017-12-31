@@ -34,7 +34,7 @@ class SearchPage extends Component {
                   address={this.props.geocodeResult.address}
                   location={this.props.geocodeResult.location}
                 />
-                <h2>ホテル検索結果</h2>
+                <h2>検索結果</h2>
                 <HotelsTable />
               </div>
             </div>

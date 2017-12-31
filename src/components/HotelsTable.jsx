@@ -5,7 +5,68 @@ import HotelsClickableTh from './HotelsClickableTh';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 
+import { Table, Icon, Divider } from 'antd';
+
+const columns = [{
+  title: '画像',
+  dataIndex: 'thumbUrl',
+  key: 'thumbUrl',
+  render: thumbUrl => <img src={thumbUrl} />,
+}, {
+  title: 'ホテル名',
+  dataIndex: 'name',
+  key: 'name',
+}, {
+  title: '値段',
+  dataIndex: 'price',
+  key: 'price',
+  // sorter: (price) => sortKey(price),
+  sorter: (a, b) => a.price - b.price,
+  sortOrder: true,
+  // sortOrder: this.state.sortedInfo.columnKey === 'price' && this.state.sortedInfo.order,
+}, {
+  title: 'レビュー',
+  dataIndex: 'reviewAverage',
+  key: 'reviewAverage',
+  sorter: (a, b) => a.reviewAverage - b.reviewAverage,
+  sortOrder: true,
+}, {
+  title: 'レビュー数',
+  dataIndex: 'reviewCount',
+  key: 'reviewCount',
+  sorter: (a, b) => a.reviewCount - b.reviewCount,
+  sortOrder: true,
+}, {
+  title: '距離',
+  dataIndex: 'distance',
+  key: 'distance',
+  sorter: (a, b) => a.distance - b.distance,
+  sortOrder: true,
+},
+];
+
+/*
+const data = [{
+  key: '1',
+  name: 'John Brown',
+  age: 32,
+  address: 'New York No. 1 Lake Park',
+}, {
+  key: '2',
+  name: 'Jim Green',
+  age: 42,
+  address: 'London No. 1 Lake Park',
+}, {
+  key: '3',
+  name: 'Joe Black',
+  age: 32,
+  address: 'Sidney No. 1 Lake Park',
+}];
+*/
+
 const HotelsTable = ({ hotels }) => (
+  <Table columns={columns} dataSource={hotels} />
+  /*
   <table>
     <tbody>
       <tr>
@@ -31,6 +92,7 @@ const HotelsTable = ({ hotels }) => (
       {hotels.map(hotel => (<HotelRaw key={hotel.id} hotel={hotel} />))}
     </tbody>
   </table>
+  */
 );
 
 HotelsTable.propTypes = {

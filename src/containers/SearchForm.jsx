@@ -37,7 +37,7 @@ const SearchForm = props => (
   */
   <div className="search-form">
     <Row align="middle">
-      <Col offset={8} span={8}>
+      <Col offset={6} span={8}>
         <Form layout="inline" onSubmit={
           (e) => {
             e.preventDefault();
@@ -47,7 +47,7 @@ const SearchForm = props => (
         }>
           <Form.Item>
             <Search
-              style={{ width: 350 }}
+              style={{ width: 400 }}
               placeholder="検索したい場所を入力してください"
               enterButton="検索"
               value={props.place}
