@@ -1,7 +1,7 @@
 hotel_search
 ===
 
-[![CircleCI](https://circleci.com/gh/zabio3/geolocation_search.svg?style=svg)](https://circleci.com/gh/zabio3/geolocation_search)
+[![CircleCI](https://circleci.com/gh/zabio3/hotel_search/tree/master.svg?style=svg)](https://circleci.com/gh/zabio3/hotel_search/tree/master)
 
 react + redux + ant-designでのテストのために作成したgoogle map api と楽天トラベルのAPIを組み合わせた簡単なwebページ。(個人メモのためのリポジトリ)
 
