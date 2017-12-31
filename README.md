@@ -3,7 +3,8 @@ hotel_search
 
 [![CircleCI](https://circleci.com/gh/zabio3/geolocation_search.svg?style=svg)](https://circleci.com/gh/zabio3/geolocation_search)
 
-react + reduxでのテストのために作成したgeolocationとホテル検索APIを組み合わせた簡単なwebページ
+react + redux + ant-designでのテストのために作成したgoogle map api と楽天トラベルのAPIを組み合わせた簡単なwebページ。(個人メモのためのリポジトリ)
+
 
 ## Requirement
 
@@ -12,6 +13,10 @@ react + reduxでのテストのために作成したgeolocationとホテル検�
 | yarn     | 1.3.2    |
 | react    | 15.6.1    |
 |[react-google-maps](https://www.google.co.jp/search?q=react+google+maps&oq=react+google+maps&aqs=chrome..69i57j69i60l2j0l3.3028j0j7&sourceid=chrome&ie=UTF-8) | 9.4.3  |
+
+#### イメージ画像
+
+![ホテル検索画面](images/sample.png)
 
 ## Usage
 
