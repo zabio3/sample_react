@@ -3,8 +3,7 @@ hotel_search
 
 [![CircleCI](https://circleci.com/gh/zabio3/hotel_search/tree/master.svg?style=svg)](https://circleci.com/gh/zabio3/hotel_search/tree/master)
 
-react + redux + ant-designでのテストのために作成したgoogle map api と楽天トラベルのAPIを組み合わせた簡単なwebページ。(個人メモのためのリポジトリ)
-
+A simple web page combining Google Map API and Rakuten Travel API (react + redux + ant-design)..
 
 ## Requirement
 
@@ -14,25 +13,25 @@ react + redux + ant-designでのテストのために作成したgoogle map api 
 | react    | 15.6.1    |
 |[react-google-maps](https://www.google.co.jp/search?q=react+google+maps&oq=react+google+maps&aqs=chrome..69i57j69i60l2j0l3.3028j0j7&sourceid=chrome&ie=UTF-8) | 9.4.3  |
 
-#### イメージ画像
+#### Images
 
-![ホテル検索画面](images/sample.png)
+![Hotel Search Page](images/sample.png)
 
 ## Usage
 
-#### 事前設定
+#### Setting
   - config.template.envをCopyして、config.envを作成
   - RAKUTEN_APP_IDを設定(config.env)
 
-#### 起動
+#### Start
 
 ```
 yarn run start
 ```
 #### Memo
  - [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/intro?hl=ja)
- - [楽天トラベルAPI](https://webservice.rakuten.co.jp/api/hoteldetailsearch/)
- - [個人メモ](notes/memo.md)
+ - [Rakuten Travel API](https://webservice.rakuten.co.jp/api/hoteldetailsearch/)
+ - [Memo](notes/memo.md)
 
 ## Author
   - [zabio3](https://github.com/zabio3)
