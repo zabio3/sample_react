@@ -20,8 +20,8 @@ A simple web page combining Google Map API and Rakuten Travel API (react + redux
 ## Usage
 
 #### Setting
-  - config.template.envをCopyして、config.envを作成
-  - RAKUTEN_APP_IDを設定(config.env)
+  - Make onfig.env (copy config.template.env)
+  - Set RAKUTEN_APP_ID(config.env)
 
 #### Start
 
